@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/White"
+    android:orientation="vertical"
+    android:weightSum="2" >
+
+    <ImageView
+        android:id="@+id/dialogTwoButtonHeader"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:layout_marginBottom="5dp"
+        android:layout_weight="1"
+        android:gravity="center" />
+
+    <TextView
+        android:id="@+id/dialogTwoButtonText"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="5dp"
+        android:layout_weight=".25"
+        android:gravity="center"
+        android:textColor="@color/material_grey_600"
+        android:textSize="15sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight=".75"
+        android:gravity="center"
+        android:weightSum="2" >
+
+        <widgets.MaterialButton
+            android:id="@+id/acceptButton"
+            android:layout_width="70dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_margin="5dp"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_done_white_48dp"
+            app:buttonColor="@color/principal"
+            app:shadowEnabled="true" />
+
+        <widgets.MaterialButton
+            android:id="@+id/declineButton"
+            android:layout_width="70dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_highlight_off_white_48dp"
+            app:buttonColor="@color/redcolor"
+            app:shadowEnabled="true" />
+    </LinearLayout>
+
+</LinearLayout>

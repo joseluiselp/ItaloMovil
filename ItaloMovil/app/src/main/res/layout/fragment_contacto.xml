@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/lblDireccionClub"
+        android:id="@+id/lblDireccionClub"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:textStyle="bold"
+        android:textColor="#000000"
+        android:textSize="20dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textMultiLine"
+        android:ems="10"
+        android:id="@+id/txtDireccionClub"
+        android:text="INFORMACIÓN DE LA DIRECCION DEL CLUB ÍTALO VENEZOLANO"
+        android:editable="false"
+        android:layout_below="@+id/lblDireccionClub"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/txtCorreoClub"
+        android:layout_alignEnd="@+id/txtCorreoClub"
+        android:focusable="false"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/lblCorreoClub"
+        android:id="@+id/lblCorreoClub"
+        android:layout_marginTop="17dp"
+        android:textStyle="bold"
+        android:textColor="#000000"
+        android:textSize="20dp"
+        android:layout_below="@+id/txtDireccionClub"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtCorreoClub"
+        android:text="CORREO ELECTRÓNICO DEL CLUB"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/lblCorreoClub"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:editable="false"
+        android:focusable="false"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/lblRedesSocialesClub"
+        android:id="@+id/lblRedesSocialesClub"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:layout_below="@+id/txtCorreoClub"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="18dp" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView"
+        android:layout_below="@+id/lblRedesSocialesClub"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="18dp"
+        android:background="@drawable/facebook" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtFacebookClub"
+        android:layout_alignBottom="@+id/imageView"
+        android:layout_alignLeft="@+id/lblCorreoClub"
+        android:layout_alignStart="@+id/lblCorreoClub"
+        android:layout_alignRight="@+id/txtCorreoClub"
+        android:layout_alignEnd="@+id/txtCorreoClub"
+        android:text="FACEBOOK.COM"
+        android:editable="false"
+        android:focusable="false"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView2"
+        android:layout_marginTop="17dp"
+        android:background="@drawable/rss"
+        android:layout_below="@+id/txtFacebookClub"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtPaginaWebClub"
+        android:layout_alignBottom="@+id/imageView2"
+        android:layout_alignLeft="@+id/txtFacebookClub"
+        android:layout_alignStart="@+id/txtFacebookClub"
+        android:layout_alignRight="@+id/txtFacebookClub"
+        android:layout_alignEnd="@+id/txtFacebookClub"
+        android:text="ITALSOFT-CLUBITALO.COM"
+        android:editable="false"
+        android:focusable="false"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView3"
+        android:layout_below="@+id/imageView2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="18dp"
+        android:background="@drawable/twitter" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtTwitterClub"
+        android:layout_alignBottom="@+id/imageView3"
+        android:layout_alignLeft="@+id/txtPaginaWebClub"
+        android:layout_alignStart="@+id/txtPaginaWebClub"
+        android:layout_alignRight="@+id/txtPaginaWebClub"
+        android:layout_alignEnd="@+id/txtPaginaWebClub"
+        android:text="TWITTER.COM"
+        android:editable="false"
+        android:focusable="false"/>
+
+</RelativeLayout>

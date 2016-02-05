@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <LinearLayout
+        android:id="@+id/linearLayoutBottomBar"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/principal"
+        android:orientation="horizontal"
+        android:weightSum="4" >
+
+        <RelativeLayout
+            android:id="@+id/relativeLayoutBtnHome"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:layout_weight="1" >
+
+            <TextView
+                android:id="@+id/btnHome"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:drawableTop="@drawable/ic_home_white_36dp" />
+
+            <!--
+            <TextView
+                android:id="@+id/btnHomeBadge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignRight="@id/btnHome"
+                android:layout_alignTop="@id/btnHome"
+                android:background="@drawable/badge_drop"
+                android:text="1"
+                android:paddingLeft="7dp"
+                android:paddingRight="7dp"
+                android:textColor="@color/White"
+                android:textSize="7sp"
+                android:textStyle="bold" />
+                -->
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/btnRegistrarInvitado"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/ic_loupe_white_36dp"
+            android:gravity="center" />
+
+        <RelativeLayout
+            android:id="@+id/relativeLayoutBtnNotification"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:layout_weight="1" >
+
+            <TextView
+                android:id="@+id/btnNotification"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:drawableTop="@drawable/ic_notifications_active_white_36dp" />
+
+            <!--
+            <TextView
+                android:id="@+id/btnNotificationBadge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignRight="@id/btnNotification"
+                android:layout_alignTop="@id/btnNotification"
+                android:background="@drawable/badge_drop"
+                android:text="10"
+                android:textColor="@color/White"
+                android:textSize="7sp"
+                android:textStyle="bold" />
+                -->
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/btnSettings"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/ic_settings_applications_white_36dp"
+            android:gravity="center" />
+    </LinearLayout>
+
+</merge>

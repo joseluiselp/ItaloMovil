@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="5dp">
+
+
+
+    <TextView
+        android:layout_gravity="center"
+        android:textSize="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textStyle="bold"
+        android:textColor="@color/material_grey_600"
+        android:text="@string/login_title"
+        />
+
+        <EditText
+            android:layout_gravity="center"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:inputType="textEmailAddress"
+            android:ems="10"
+            android:id="@+id/txtCorreoElectronico"
+            android:hint="Correo electrónico" />
+
+        <EditText
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:ems="10"
+            android:id="@+id/txtContrasena"
+            android:hint="Contraseña" />
+
+        <TextView
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/lblOlvidemiclave"
+            android:id="@+id/lblOlvidemiclave"
+            android:layout_marginTop="10dp"
+            android:textStyle="bold"
+            android:textColor="@color/material_grey_600"
+            android:textSize="20dp"
+            android:clickable="true" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:layout_marginTop="10dp">
+
+        <italo.com.app.italomovil.widgets.MaterialButton
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnIngresar"
+            android:textColor="@android:color/white"
+            android:text="@string/btnIngresar"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            app:buttonColor="@color/yellowcolor"
+            app:shadowEnabled="true"/>
+
+    </LinearLayout>
+
+
+</LinearLayout>

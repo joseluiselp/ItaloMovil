@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">Italo</string>
+
+    <!-- Registrar invitado -->
+    <string name="registrarInvitadoTitle">Registrar Invitado</string>
+
+
+    <!-- Login -->
+    <string name="lblOlvidemiclave">Olvide mi clave</string>
+    <string name="btnIngresar">Ingresar</string>
+    <string name="login_title">Iniciar Sesión</string>
+
+    <!--Quienes Somos-->
+    <string name="lblVision">VISIÓN</string>
+    <string name="lblMision">MISIÓN</string>
+
+    <!-- Contacto -->
+    <string name="lblDireccionClub">DIRECCIÓN:</string>
+    <string name="lblCorreoClub">CORREO ELECTRÓNICO:</string>
+    <string name="lblRedesSocialesClub">REDES SOCIALES:</string>
+
+    <integer-array name="google_colors">
+        <item>@color/redcolor</item>
+        <item>@color/Blue</item>
+        <item>@color/yellowcolor</item>
+        <item>@color/Purple</item>
+    </integer-array>
+
+</resources>
