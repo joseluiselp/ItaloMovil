@@ -22,7 +22,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainFragment extends Fragment {
 
@@ -34,6 +37,8 @@ public class MainFragment extends Fragment {
 
     private DrawerLayout mDrawerLayout;
     private ListView mDrawerList;
+    private LinearLayout mDrawerLinearLayout;
+    private TextView txtOpcion1,txtOpcion2,txtOpcion3,txtOpcion4;
     private ViewPager pager;
     private String titles[] = new String[]{"Quienes somos", "Noticias",
             "Contacto", "Prueba"};
@@ -48,7 +53,8 @@ public class MainFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         mDrawerLayout = (DrawerLayout) view.findViewById(R.id.drawer_layout);
-        mDrawerList = (ListView) view.findViewById(R.id.left_drawer);
+        //mDrawerList = (ListView) view.findViewById(R.id.left_drawer);
+        mDrawerLinearLayout = (LinearLayout) view.findViewById(R.id.left_drawer);
 
 
         toolbar = (Toolbar) view.findViewById(R.id.toolbar);
@@ -92,10 +98,20 @@ public class MainFragment extends Fragment {
         drawerToggle = new ActionBarDrawerToggle(getActivity(), mDrawerLayout,toolbar , R.string.app_name, R.string.app_name);
         drawerToggle.syncState();
         mDrawerLayout.setDrawerListener(drawerToggle);
+        mDrawerLinearLayout.bringToFront();
+
+        initDrawerOptions();
+
+
+
+
+        /**
         String[] values = new
                 String[]{"DEFAULT", "RED", "BLUE"};
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),
                 android.R.layout.simple_list_item_1, android.R.id.text1, values);
+
+
         mDrawerList.setAdapter(adapter);
         mDrawerList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
@@ -133,6 +149,7 @@ public class MainFragment extends Fragment {
 
             }
         });
+         */
 
     }
 
@@ -142,18 +159,6 @@ public class MainFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         return inflater.inflate(R.layout.mainpage, container, false);
-    }
-
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-
-        if (drawerToggle.onOptionsItemSelected(item)) {
-            return true;
-        }
-
-
-        return super.onOptionsItemSelected(item);
     }
 
     public void updateMenu() {
@@ -166,6 +171,35 @@ public class MainFragment extends Fragment {
             menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.ic_recent_actors_white_24dp));
             MainActivity.setBottomBarVisible(View.GONE);
         }
+    }
+
+    private void initDrawerOptions() {
+
+        txtOpcion1 = (TextView)mDrawerLinearLayout.findViewById(R.id.txtOpcion1);
+        txtOpcion2 = (TextView)mDrawerLinearLayout.findViewById(R.id.txtOpcion2);
+        txtOpcion3 = (TextView)mDrawerLinearLayout.findViewById(R.id.txtOpcion3);
+        txtOpcion4 = (TextView)mDrawerLinearLayout.findViewById(R.id.txtOpcion4);
+
+        txtOpcion1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+            }
+        });
+        txtOpcion2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+            }
+        });
+        txtOpcion3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+            }
+        });
+        txtOpcion4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+            }
+        });
     }
 
 }
