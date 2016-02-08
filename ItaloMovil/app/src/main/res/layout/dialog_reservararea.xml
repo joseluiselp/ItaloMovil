@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/txtReservaTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:textSize="20sp"
+        android:textColor="@color/yellowcolor"
+        />
+
+    <DatePicker
+        android:id="@+id/datePickerReserva"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:padding="5dp"
+        >
+        </DatePicker>
+
+    <TextView
+        android:id="@+id/txtDisponibilidad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Disponible para esta fecha"
+        android:layout_gravity="center_horizontal"
+        android:textSize="20sp"
+        android:textColor="@color/yellowcolor"
+        android:textStyle="bold"/>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp">
+
+        <TextView
+            android:id="@+id/txtCantidadInvitados"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerInParent="true"
+            android:text="@string/cantidadInvitados"
+            android:textColor="@color/yellowcolor"
+            android:textSize="20sp"/>
+
+    <NumberPicker
+        android:id="@+id/nbrCantidadInvitados"
+        android:layout_width="wrap_content"
+        android:layout_toRightOf="@id/txtCantidadInvitados"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="5dp"
+        android:layout_height="wrap_content"
+        android:scaleY="0.7"
+        android:scaleX="0.7"
+        ></NumberPicker>
+
+        </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:weightSum="2"
+        android:orientation="horizontal">
+
+
+        <italo.com.app.italomovil.widgets.MaterialButton
+            android:id="@+id/btnGuardarReserva"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginRight="2.5dp"
+            android:text="Aceptar"
+            android:textColor="@color/White"
+            app:buttonColor="@color/principal"
+            app:shadowEnabled="true"
+            />
+
+        <italo.com.app.italomovil.widgets.MaterialButton
+            android:id="@+id/btnCancelar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginLeft="2.5dp"
+            android:text="Cancelar"
+            android:textColor="@color/White"
+            app:buttonColor="@color/principal"
+            app:shadowEnabled="true"
+            />
+
+        </LinearLayout>
+
+
+
+</LinearLayout>

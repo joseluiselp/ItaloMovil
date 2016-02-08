@@ -4,9 +4,12 @@ package italo.com.app.italomovil.utils;
 
 import android.content.Context;
 import android.content.res.Resources;
+import android.text.format.Time;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
 import android.view.View;
+
+import java.util.Calendar;
 
 public class Utils {
 
@@ -35,23 +38,6 @@ public class Utils {
 		float px = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp,
 				resources.getDisplayMetrics());
 		return (int) px;
-	}
-
-	public static int getRelativeTop(View myView) {
-		// if (myView.getParent() == myView.getRootView())
-		if (myView.getId() == android.R.id.content)
-			return myView.getTop();
-		else
-			return myView.getTop() + getRelativeTop((View) myView.getParent());
-	}
-
-	public static int getRelativeLeft(View myView) {
-		// if (myView.getParent() == myView.getRootView())
-		if (myView.getId() == android.R.id.content)
-			return myView.getLeft();
-		else
-			return myView.getLeft()
-					+ getRelativeLeft((View) myView.getParent());
 	}
 
 }

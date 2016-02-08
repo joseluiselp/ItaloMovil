@@ -6,8 +6,11 @@ import italo.com.app.italomovil.adapter.ViewPagerAdapter;
 import italo.com.app.italomovil.widgets.SlidingTabLayout;
 import italo.com.app.italomovil.widgets.dialogs.DialogLogin;
 
+import android.app.DatePickerDialog;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v4.app.DialogFragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
@@ -22,10 +25,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.DatePicker;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.Calendar;
 
 public class MainFragment extends Fragment {
 
@@ -45,6 +51,8 @@ public class MainFragment extends Fragment {
     private Toolbar toolbar;
     private SlidingTabLayout slidingTabLayout;
     private Menu menu;
+
+    private DatePickerDialog dialogPicker;
 
     private boolean isLogin = false;
 
@@ -180,14 +188,19 @@ public class MainFragment extends Fragment {
         txtOpcion3 = (TextView)mDrawerLinearLayout.findViewById(R.id.txtOpcion3);
         txtOpcion4 = (TextView)mDrawerLinearLayout.findViewById(R.id.txtOpcion4);
 
+        txtOpcion1.setText("Reservar Areas");
+
         txtOpcion1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                openAreasFragment();
+                mDrawerLayout.closeDrawers();
             }
         });
         txtOpcion2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
             }
         });
         txtOpcion3.setOnClickListener(new View.OnClickListener() {
@@ -200,6 +213,41 @@ public class MainFragment extends Fragment {
             public void onClick(View v) {
             }
         });
+    }
+
+    private void openAreasFragment() {
+        if (getActivity().getSupportFragmentManager().popBackStackImmediate(
+                Areas.class.toString(), 0)) {
+        } else {
+            // Create new fragment and transaction
+            Fragment fragmentAreas = new Areas();
+            FragmentTransaction transaction = getActivity().getSupportFragmentManager()
+                    .beginTransaction();
+
+            // Replace whatever is in the fragment_container view
+            // with this fragment,
+            // and add the transaction to the back stack if needed
+            transaction.replace(R.id.fragment_container, fragmentAreas);
+            transaction.addToBackStack(fragmentAreas.getClass().toString());
+
+            // Commit the transaction
+            transaction.commit();
+        }
+    }
+
+    public void showDatePickerDialog() {
+        final Calendar c = Calendar.getInstance();
+        int year = c.get(Calendar.YEAR);
+        int month = c.get(Calendar.MONTH);
+        int day = c.get(Calendar.DAY_OF_MONTH);
+        dialogPicker = new DatePickerDialog(getContext(),new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                System.out.println( dayOfMonth+"/"+monthOfYear+"/"+year);
+                Toast.makeText(getContext(), dayOfMonth+"/"+monthOfYear+"/"+year, Toast.LENGTH_LONG);
+            }
+        }, year, month, day);
+        dialogPicker.show();
     }
 
 }

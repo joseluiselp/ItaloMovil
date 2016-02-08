@@ -14,7 +14,7 @@
         android:layout_weight="1.3">
 
         <italo.com.app.italomovil.widgets.MaterialRoundedImageView
-            android:id="@+id/fotoPerfil"
+            android:id="@+id/imgPerfil"
             android:src="@drawable/nouser"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -35,7 +35,7 @@
             android:textSize="20sp"
             android:textStyle="bold"
             android:lines="2"
-            android:layout_below="@id/fotoPerfil"
+            android:layout_below="@id/imgPerfil"
             android:padding="5dp"
             android:text="PANCHITO PEREZ"/>
 

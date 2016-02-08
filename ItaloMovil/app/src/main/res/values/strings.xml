@@ -1,9 +1,14 @@
 <resources>
     <string name="app_name">Italo</string>
 
+    <!-- Areas -->
+    <string name="areasTitle">Areas del Club</string>
+
     <!-- Registrar invitado -->
     <string name="registrarInvitadoTitle">Registrar Invitado</string>
 
+    <!-- Reservar Area -->
+    <string name="cantidadInvitados">Cantidad Invitados:</string>
 
     <!-- Login -->
     <string name="lblOlvidemiclave">Olvide mi clave</string>
