@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/registrarInvitadoToolbar"
@@ -13,133 +15,91 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/registrarInvitadoToolbar"
-        android:fillViewport="true">
+        android:layout_height="match_parent"
+        android:id="@+id/scrollView" >
 
-        <RelativeLayout
+        <LinearLayout
+            android:orientation="vertical"
             android:id="@+id/relativeLayoutUpload"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="10dp">
-
-            <italo.com.app.italomovil.widgets.MaterialButton
-                android:id="@+id/button9"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginTop="40dp"
-                android:text="Día a Asistir"
-                android:textColor="@android:color/white" />
+            android:padding="30dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@id/registrarInvitadoToolbar">
 
             <TextView
                 android:id="@+id/textView7"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/button9"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="48dp"
                 android:text="Datos del Invitado"
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true" />
 
             <EditText
-                android:id="@+id/editText5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_above="@+id/editText6"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentStart="true"
-                android:ems="10"
-                android:hint="Cédula"
-                android:inputType="textMultiLine" />
-
-            <EditText
-                android:id="@+id/editText6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignEnd="@+id/editText5"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_alignRight="@+id/editText5"
-                android:layout_centerVertical="true"
-                android:ems="10"
-                android:hint="Nombres"
-                android:inputType="textMultiLine" />
-
-            <EditText
-                android:id="@+id/editText7"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignEnd="@+id/editText6"
-                android:layout_alignLeft="@+id/editText6"
-                android:layout_alignRight="@+id/editText6"
-                android:layout_alignStart="@+id/editText6"
-                android:layout_below="@+id/editText6"
-                android:ems="10"
-                android:hint="Apellidos"
-                android:inputType="textMultiLine" />
-
-            <EditText
-                android:id="@+id/editText9"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignEnd="@+id/editText7"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_alignRight="@+id/editText7"
-                android:layout_below="@+id/editText8"
-                android:ems="10"
-                android:hint="Correo electrónico"
-                android:inputType="textEmailAddress" />
-
-            <EditText
-                android:id="@+id/editText8"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignEnd="@+id/editText9"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_alignRight="@+id/editText9"
-                android:layout_below="@+id/editText7"
-                android:ems="10"
-                android:hint="Teléfono"
-                android:inputType="phone" />
-
-            <italo.com.app.italomovil.widgets.MaterialButton
-                android:id="@+id/button10"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:text="Guardar"
-                android:textColor="@android:color/white" />
-
-            <italo.com.app.italomovil.widgets.MaterialButton
-                android:id="@+id/button11"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignEnd="@+id/editText9"
-                android:layout_alignRight="@+id/editText9"
-                android:layout_alignTop="@+id/button10"
-                android:text="Cancelar"
-                android:textColor="@android:color/white" />
-
-            <EditText
+                android:inputType="textPersonName"
+                android:ems="15"
                 android:id="@+id/editText4"
+                android:layout_below="@+id/textView7"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:hint="Cedula" />
+
+            <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:layout_alignTop="@+id/button9"
-                android:ems="10"
-                android:inputType="textMultiLine" />
-        </RelativeLayout>
+                android:id="@+id/editText5"
+                android:ems="15"
+                android:layout_below="@+id/editText4"
+                android:layout_alignLeft="@+id/editText4"
+                android:layout_alignStart="@+id/editText4"
+                android:layout_alignRight="@+id/editText4"
+                android:layout_alignEnd="@+id/editText4"
+                android:hint="Nombres" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/editText6"
+                android:ems="15"
+                android:layout_below="@+id/editText5"
+                android:layout_alignRight="@+id/editText5"
+                android:layout_alignEnd="@+id/editText5"
+                android:layout_alignLeft="@+id/editText5"
+                android:layout_alignStart="@+id/editText5"
+                android:hint="Apellidos" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:layout_marginTop="10dp">
+
+                <italo.com.app.italomovil.widgets.MaterialButton
+                    android:layout_gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/btnIngresar"
+                    android:textColor="@android:color/white"
+                    android:text="Registrar"
+                    android:textStyle="bold"
+                    android:textSize="20dp"
+                    app:buttonColor="@color/yellowcolor"
+                    app:shadowEnabled="true"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
     </ScrollView>
 
 
-</RelativeLayout>
+
+</LinearLayout>

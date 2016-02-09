@@ -189,6 +189,10 @@ public class MainFragment extends Fragment {
         txtOpcion4 = (TextView)mDrawerLinearLayout.findViewById(R.id.txtOpcion4);
 
         txtOpcion1.setText("Reservar Areas");
+        txtOpcion2.setText("Enviar Sugerencia");
+        txtOpcion3.setText("Olvidé mi Clave");
+        txtOpcion4.setText("Cerrar Sesión");
+
 
         txtOpcion1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -200,12 +204,15 @@ public class MainFragment extends Fragment {
         txtOpcion2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                openEnviarSugerencia();
+                mDrawerLayout.closeDrawers();
             }
         });
         txtOpcion3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                openOlvideContrasenaFragment();
+                mDrawerLayout.closeDrawers();
             }
         });
         txtOpcion4.setOnClickListener(new View.OnClickListener() {
@@ -229,6 +236,45 @@ public class MainFragment extends Fragment {
             // and add the transaction to the back stack if needed
             transaction.replace(R.id.fragment_container, fragmentAreas);
             transaction.addToBackStack(fragmentAreas.getClass().toString());
+
+            // Commit the transaction
+            transaction.commit();
+        }
+    }
+
+    private void openOlvideContrasenaFragment() {
+        if (getActivity().getSupportFragmentManager().popBackStackImmediate(
+                OlvideContrasena.class.toString(), 0)) {
+        } else {
+            // Create new fragment and transaction
+            Fragment fragmentOlvideContrasena = new OlvideContrasena();
+            FragmentTransaction transaction = getActivity().getSupportFragmentManager()
+                    .beginTransaction();
+
+            // Replace whatever is in the fragment_container view
+            // with this fragment,
+            // and add the transaction to the back stack if needed
+            transaction.replace(R.id.fragment_container, fragmentOlvideContrasena);
+            transaction.addToBackStack(fragmentOlvideContrasena.getClass().toString());
+
+            // Commit the transaction
+            transaction.commit();
+        }
+    }
+    private void openEnviarSugerencia() {
+        if (getActivity().getSupportFragmentManager().popBackStackImmediate(
+                EnviarSugerencia.class.toString(), 0)) {
+        } else {
+            // Create new fragment and transaction
+            Fragment fragmentEnviarSugerencia = new EnviarSugerencia();
+            FragmentTransaction transaction = getActivity().getSupportFragmentManager()
+                    .beginTransaction();
+
+            // Replace whatever is in the fragment_container view
+            // with this fragment,
+            // and add the transaction to the back stack if needed
+            transaction.replace(R.id.fragment_container, fragmentEnviarSugerencia);
+            transaction.addToBackStack(fragmentEnviarSugerencia.getClass().toString());
 
             // Commit the transaction
             transaction.commit();
