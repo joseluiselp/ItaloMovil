@@ -22,6 +22,7 @@ import android.widget.Toast;
 
 import italo.com.app.italomovil.fragments.MainFragment;
 import italo.com.app.italomovil.fragments.RegistrarInvitado;
+import italo.com.app.italomovil.fragments.ConsultarInvitados;
 import italo.com.app.italomovil.utils.Utils;
 
 
@@ -133,6 +134,7 @@ public class MainActivity extends FragmentActivity {
                 settings.setCompoundDrawablesWithIntrinsicBounds(0,
                         R.drawable.ic_settings_applications_white_36dp, 0, 0);
                 //openNotificationFragment();
+                openConsultarInvitadosFragment();
             }
         });
 
@@ -396,4 +398,24 @@ private void openRegistrarInvitadoFragment() {
         transaction.commit();
     }
 }
+
+    private void openConsultarInvitadosFragment() {
+        if (getSupportFragmentManager().popBackStackImmediate(
+                ConsultarInvitados.class.toString(), 0)) {
+        } else {
+            // Create new fragment and transaction
+            Fragment consultarInvitado = new ConsultarInvitados();
+            FragmentTransaction transaction = getSupportFragmentManager()
+                    .beginTransaction();
+
+            // Replace whatever is in the fragment_container view
+            // with this fragment,
+            // and add the transaction to the back stack if needed
+            transaction.replace(R.id.fragment_container, consultarInvitado);
+            transaction.addToBackStack(consultarInvitado.getClass().toString());
+
+            // Commit the transaction
+            transaction.commit();
+        }
+    }
 }

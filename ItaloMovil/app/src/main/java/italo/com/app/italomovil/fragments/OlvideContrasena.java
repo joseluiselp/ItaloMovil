@@ -2,20 +2,22 @@ package italo.com.app.italomovil.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.support.v7.widget.Toolbar;
 
 import italo.com.app.italomovil.R;
 
-
-public class RegistrarInvitado extends Fragment {
+/**
+ * Created by enrique on 09/02/16.
+ */
+public class OlvideContrasena extends Fragment {
 
     private Toolbar toolbar;
 
-    public static RegistrarInvitado newInstance() {
-        RegistrarInvitado f = new RegistrarInvitado();
+    public static OlvideContrasena newInstance() {
+        OlvideContrasena f = new OlvideContrasena();
         Bundle b = new Bundle();
         f.setArguments(b);
         return f;
@@ -25,9 +27,9 @@ public class RegistrarInvitado extends Fragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        toolbar = (Toolbar) view.findViewById(R.id.registrarInvitadoToolbar);
+        toolbar = (Toolbar) view.findViewById(R.id.olvidecontrasenaToolbar);
         if (toolbar != null) {
-            toolbar.setTitle(R.string.registrarInvitadoTitle);
+            toolbar.setTitle("¿Olvidó su Contraseña?");
             toolbar.setTitleTextColor(getResources().getColor(R.color.White));
             toolbar.setNavigationIcon(R.drawable.ic_arrow_back_white_48dp);
             toolbar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -40,13 +42,11 @@ public class RegistrarInvitado extends Fragment {
                 }
             });
         }
-
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
-         return inflater.inflate(R.layout.fragment_registrarinvitado, container, false);
+        return inflater.inflate(R.layout.fragment_olvidecontrasena, container, false);
     }
 }
