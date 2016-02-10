@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="principal">#FFBB33</color>
+    <color name="principal">#0288d1</color>
     <color name="black">#ff000000</color>
     <color name="txtcolor">#DBDBDB</color>
     <color name="headercolor">#4547B7</color>
     <color name="transparent">#80000000</color>
   	
     <color name="redcolor">#ef4444</color>
-    <color name="yellowcolor">#f3ae1b</color>
+    <color name="yellowcolor">#78909C</color>
     <color name="greencolor">#70c656</color>
     
       <color name="footer">#999999</color>
