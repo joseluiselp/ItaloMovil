@@ -31,4 +31,11 @@
         <item>@color/Purple</item>
     </integer-array>
 
+<!-- TODO: Remove or change this placeholder text -->
+
+    <string name="title_activity_splash">ItalSoft</string>
+
+
+    <string name="action_settings">Settings</string>
+
 </resources>

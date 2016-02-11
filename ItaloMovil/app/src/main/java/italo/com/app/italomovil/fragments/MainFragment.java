@@ -44,9 +44,9 @@ public class MainFragment extends Fragment {
     private DrawerLayout mDrawerLayout;
     private ListView mDrawerList;
     private LinearLayout mDrawerLinearLayout;
-    private TextView txtOpcion1,txtOpcion2,txtOpcion3,txtOpcion4;
+    private TextView txtOpcion1,txtOpcion2,txtOpcion3,txtOpcion4, txtOpcion5;
     private ViewPager pager;
-    private String titles[] = new String[]{"Quienes somos", "Noticias",
+    private String titles[] = new String[]{"Inicio", "Servicio",
             "Contacto", "Prueba"};
     private Toolbar toolbar;
     private SlidingTabLayout slidingTabLayout;
@@ -187,11 +187,13 @@ public class MainFragment extends Fragment {
         txtOpcion2 = (TextView)mDrawerLinearLayout.findViewById(R.id.txtOpcion2);
         txtOpcion3 = (TextView)mDrawerLinearLayout.findViewById(R.id.txtOpcion3);
         txtOpcion4 = (TextView)mDrawerLinearLayout.findViewById(R.id.txtOpcion4);
+        txtOpcion5 = (TextView)mDrawerLinearLayout.findViewById(R.id.txtOpcion5);
 
-        txtOpcion1.setText("Reservar Areas");
-        txtOpcion2.setText("Enviar Sugerencia");
-        txtOpcion3.setText("Olvidé mi Clave");
-        txtOpcion4.setText("Cerrar Sesión");
+        txtOpcion1.setText("Reservar áreas");
+        txtOpcion2.setText("Enviar sugerencia");
+        txtOpcion3.setText("Olvidé mi clave");
+        txtOpcion4.setText("Cambiar clave");
+        txtOpcion5.setText("Cerrar sesión");
 
 
         txtOpcion1.setOnClickListener(new View.OnClickListener() {
@@ -215,9 +217,23 @@ public class MainFragment extends Fragment {
                 mDrawerLayout.closeDrawers();
             }
         });
+
+        //cambiar clave
         txtOpcion4.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v)
+            {
+                openCambiarClave();
+                mDrawerLayout.closeDrawers();
+            }
+        });
+
+        //cerrar sesion
+        txtOpcion5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v)
+            {
+                System.exit(0);
             }
         });
     }
@@ -279,6 +295,11 @@ public class MainFragment extends Fragment {
             // Commit the transaction
             transaction.commit();
         }
+    }
+
+    //cambiar clave
+    private void openCambiarClave()
+    {
     }
 
     public void showDatePickerDialog() {
