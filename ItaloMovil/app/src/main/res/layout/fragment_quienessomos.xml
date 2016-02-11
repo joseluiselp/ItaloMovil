@@ -11,53 +11,23 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/lblVision"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="10dp"
-            android:text="@string/lblVision"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textColor="@color/material_grey_600"
-            android:textSize="25dp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/editText"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/lblVision"
-            android:layout_gravity="center"
-            android:layout_marginTop="5dp"
-            android:ems="10"
-            android:focusable="false"
-            android:lines="7"
-            android:text="Ser la mejor opción a la hora de ofrecer servicios recreativos de calidad,  siguiendo nuestros valores de compromiso y trabajo duro, para que nuestros socios   encuentren en nosotros el mejor espacio para practicar sus actividades recreativas."
-            android:textSize="20dp" />
-
-        <TextView
             android:id="@+id/lblMisión"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="20dp"
-            android:text="@string/lblMision"
+            android:text="Nuestras Instalaciones"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:textColor="@color/material_grey_600"
             android:textSize="25dp"
             android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/editText2"
+        <ImageView
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/lblMisión"
-            android:layout_gravity="center"
-            android:layout_marginTop="5dp"
-            android:ems="10"
-            android:focusable="false"
-            android:lines="7"
-            android:text="Somos una organización sin fines de lucro radicada en el Estado Lara  creada con el propósito de ofrecer a sus socios y allegados un espacio de recreación y   esparcimiento contando con instalaciones en óptimas condiciones y un personal apto,   enfocado en brindar un servicio de calidad"
-            android:textSize="20dp" />
+            android:layout_height="fill_parent"
+            android:src="@drawable/noimage"
+            android:id="@+id/imageView5"
+            android:layout_gravity="center_horizontal" />
+
     </LinearLayout>
 </RelativeLayout>

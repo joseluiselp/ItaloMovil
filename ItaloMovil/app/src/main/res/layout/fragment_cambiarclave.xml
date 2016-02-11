@@ -1,0 +1,59 @@
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="italo.com.app.italomovil.fragments.cambiarclave">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/cambiarclaveToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:background="@color/principal"
+        android:titleTextColor="@color/White"/>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+
+        <EditText
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Clave actual"
+            android:layout_marginTop="40dp"
+            android:id="@+id/txtClaveActual" />
+
+        <EditText
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:hint="Clave nueva"
+            android:id="@+id/txtClaveNueva" />
+
+        <EditText
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="Confirmar clave nueva"
+            android:layout_marginTop="40dp"
+            android:id="@+id/txtConfirmClave" />
+
+        <italo.com.app.italomovil.widgets.MaterialButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cambiar"
+            android:layout_gravity="center"
+            android:layout_marginTop="40dp"
+            android:textSize="20dp"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            app:buttonColor="@color/yellowcolor"
+            app:shadowEnabled="true"
+            android:id="@+id/btnCambiarClave" />
+    </LinearLayout>
+</FrameLayout>
