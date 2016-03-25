@@ -8,12 +8,10 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v4.widget.DrawerLayout;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
@@ -22,7 +20,7 @@ import android.widget.Toast;
 
 import italo.com.app.italomovil.fragments.MainFragment;
 import italo.com.app.italomovil.fragments.RegistrarInvitado;
-import italo.com.app.italomovil.fragments.ConsultarInvitados;
+import italo.com.app.italomovil.fragments.ConsultarNoticias;
 import italo.com.app.italomovil.utils.Utils;
 
 
@@ -401,10 +399,10 @@ private void openRegistrarInvitadoFragment() {
 
     private void openConsultarInvitadosFragment() {
         if (getSupportFragmentManager().popBackStackImmediate(
-                ConsultarInvitados.class.toString(), 0)) {
+                ConsultarNoticias.class.toString(), 0)) {
         } else {
             // Create new fragment and transaction
-            Fragment consultarInvitado = new ConsultarInvitados();
+            Fragment consultarInvitado = new ConsultarNoticias();
             FragmentTransaction transaction = getSupportFragmentManager()
                     .beginTransaction();
 

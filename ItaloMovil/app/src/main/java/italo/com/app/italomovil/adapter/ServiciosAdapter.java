@@ -8,199 +8,149 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.os.AsyncTask;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.BaseAdapter;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import italo.com.app.italomovil.R;
+import italo.com.app.italomovil.service.HttpClientHelper;
+import italo.com.app.italomovil.service.database.DatabaseHelper;
+import italo.com.app.italomovil.service.modelos.MClub;
+import italo.com.app.italomovil.service.modelos.MServicio;
+import italo.com.app.italomovil.utils.AsyncImage;
+import italo.com.app.italomovil.utils.Utils;
+import italo.com.app.italomovil.widgets.MaterialRoundedImageView;
 
 /**
  * Created by usuario on 2/13/16.
  */
-public class ServiciosAdapter extends BaseExpandableListAdapter {
+public class ServiciosAdapter extends BaseAdapter {
 
     private Activity activity;
-    private List<ModelView> modelViews;
-    private View view;
-    private View viewChield;
-    Integer[] imageIDs=new Integer[3];
+    private static LayoutInflater inflater = null;
+    private ArrayList<MServicio> servicios = new ArrayList<MServicio>();
 
     public ServiciosAdapter(Activity a) {
-        llenarLista();
         this.activity = a;
+        inflater = (LayoutInflater) activity
+                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        servicios = (ArrayList)DatabaseHelper.getInstance(a.getApplicationContext()).getAllServicio();
+    }
+
+
+    @Override
+    public int getCount() {
+        return servicios.size();
     }
 
     @Override
-    public int getGroupCount() {
-        return this.modelViews.size();
+    public Object getItem(int position) {
+        return servicios.get(position);
     }
 
     @Override
-    public Object getGroup(int groupPosition) {
-        return null;
+    public long getItemId(int position) {
+        return position;
     }
 
     @Override
-    public long getGroupId(int groupPosition) {
-        return this.modelViews.get(groupPosition).id;
+    public View getView(int position, View convertView, ViewGroup parent) {
+        View vi = convertView;
+        if (convertView == null)
+            vi = inflater.inflate(R.layout.adapter_servicio, null);
+
+        initViews(vi, position);
+        //imageListeners(vi, position);
+        return vi;
+
     }
 
-    @Override
-    public View getGroupView(final int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
-        view = null;
-        LayoutInflater inflator = (LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        if (convertView == null) {
-            imageIDs[0] = R.drawable.futbol;
-            imageIDs[1] = R.drawable.natacion;
-            imageIDs[2] = R.drawable.salon_de_orquestas_;
-            view = inflator.inflate(R.layout.adapter_servicio, parent, false);
-            final ViewHolder viewHolder = new ViewHolder();
-            viewHolder.textServicio = (TextView) view.findViewById(R.id.txtNombreServicio);
-            viewHolder.arrow_right = (ImageView) view.findViewById(R.id.imgContraido);
-            viewHolder.arrow_down = (ImageView) view.findViewById(R.id.imgExpandido);
-            viewHolder.imgServicio = (ImageView) view.findViewById(R.id.imgServicio);
-            view.setTag(viewHolder);
-        } else {
-            view = convertView;
+    private void initViews(View v, int position){
+        TextView txtNombre = (TextView)v.findViewById(R.id.txtNombreServicio);
+        TextView txtArea = (TextView)v.findViewById(R.id.txtAreaServicio);
+        TextView txtHorario = (TextView)v.findViewById(R.id.txtHorarioServicio);
+        TextView txtMensualidad = (TextView)v.findViewById(R.id.txtMensualidad);
+        TextView txtMensualidadS = (TextView)v.findViewById(R.id.txtMensualidadSocio);
+
+        txtNombre.setText(servicios.get(position).getNombreServicio());
+        txtArea.setText("Localizado en: " +servicios.get(position).getIdArea().getNombreArea());
+
+        txtHorario.setText("Horario de trabajo: "+String.valueOf(servicios.get(position).getIdHorario()));
+        txtMensualidad.setText("Mensualidad: "+servicios.get(position).getPrecioMensualidad().toString());
+        txtMensualidadS.setText("Mensualidad especial para socio: "+servicios.get(position).getPrecioMensualidadSocio().toString());
+
+        MaterialRoundedImageView image = (MaterialRoundedImageView) v.findViewById(R.id.imgServicio);
+
+        AsyncConce as = new AsyncConce(servicios.get(position).getIdConcesionario(), image);
+        as.execute();
+    }
+
+    class AsyncConce extends AsyncTask<Void, Integer, String> {
+
+        int id;
+        MaterialRoundedImageView image;
+
+        AsyncConce(int id, MaterialRoundedImageView image) {
+            this.id = id;
+            this.image = image;
         }
-        ViewHolder viewHolder = (ViewHolder) view.getTag();
-        viewHolder.textServicio.setText(this.modelViews.get(groupPosition).textServicio);
-        try {
-            viewHolder.imgServicio.setImageResource(imageIDs[groupPosition]);
-            //viewHolder.imgServicio.setImageDrawable(getAssetImage(activity,this.modelViews.get(groupPosition).imgServicio));
-        } catch (OutOfMemoryError e) {
-            e.printStackTrace();
+
+        @Override
+        protected String doInBackground(Void... params) {
+            JSONObject json;
+            JSONArray array = null;
+            try {
+                json = new JSONObject(HttpClientHelper.GET("/servicioconcesionario/"+id, new HashMap<String, String>()));
+                array = json.getJSONArray("tipos");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            if (array != null) {
+                for (int i = 0; i < array.length(); i++) {
+                    try {
+                        JSONObject ob = array.getJSONObject(i);
+                        System.out.println(ob.toString());
+                        String rutalogo = (ob.getString("rutaFoto"));
+                        return rutalogo;
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+
+                }
+            }
+            return null;
         }
-        if (isExpanded) {
-            viewHolder.arrow_right.setVisibility(View.VISIBLE);
-            viewHolder.arrow_down.setVisibility(View.GONE);
-        } else {
-            viewHolder.arrow_right.setVisibility(View.GONE);
-            viewHolder.arrow_down.setVisibility(View.VISIBLE);
+
+        @Override
+        protected void onPostExecute(String s) {
+            super.onPostExecute(s);
+            System.out.println("La ruta del concesionario es: "+s);
+            if(!Utils.checkifImageExists(s)) {
+                AsyncImage as = new AsyncImage(s, image);
+                as.execute();
+            }
+            else {
+                image.setImageBitmap(Utils.getImageFile(s));
+            }
         }
-        return view;
     }
 
-    @Override
-    public Object getChild(int groupPosition, int childPosition) {
-
-        return this.modelViews.get(groupPosition);
-    }
-
-    @Override
-    public long getChildId(int groupPosition, int childPosition) {
-        return childPosition;
-    }
-
-    @Override
-    public boolean hasStableIds() {
-        return false;
-    }
-
-    @Override
-    public int getChildrenCount(int groupPosition) {
-        return 1;
-    }
-
-    @Override
-    public View getChildView(final int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
-        viewChield = null;
-        LayoutInflater inflator = (LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        if (convertView == null) {
-            viewChield = inflator.inflate(R.layout.adapter_servicio_detalle, parent, false);
-            final ViewHolder viewHolder = new ViewHolder();
-            viewHolder.textAreaServicio = (TextView) viewChield.findViewById(R.id.textViewAreaServicio);
-            viewHolder.textoHorario = (TextView) viewChield.findViewById(R.id.textViewHorario);
-            viewHolder.textoHora = (TextView) viewChield.findViewById(R.id.textViewHora);
-            viewHolder.textResponsable = (TextView) viewChield.findViewById(R.id.textViewResponsable);
-            viewChield.setTag(viewHolder);
-        } else {
-            viewChield = convertView;
-        }
-        ViewHolder viewHolder = (ViewHolder) viewChield.getTag();
-        viewHolder.textAreaServicio.setText(this.modelViews.get(groupPosition).textAreaServicio);
-        viewHolder.textoHorario.setText(this.modelViews.get(groupPosition).textoHorario);
-        viewHolder.textoHora.setText(this.modelViews.get(groupPosition).textoHora);
-        viewHolder.textResponsable.setText(this.modelViews.get(groupPosition).textResponsable);
-        return viewChield;
-    }
-
-    @Override
-    public boolean isChildSelectable(int groupPosition, int childPosition) {
-        return false;
-    }
-
-
-    static class ViewHolder {
-        protected TextView textServicio;
-        protected TextView textAreaServicio;
-        protected TextView textoHorario;
-        protected TextView textoHora;
-        protected TextView textResponsable;
-        protected ImageView imgServicio;
-        protected ImageView arrow_right;
-        protected ImageView arrow_down;
-    }
-
-    static class ModelView {
-        protected int id;
-        protected String textServicio;
-        protected String textAreaServicio;
-        protected String textoHorario;
-        protected String textoHora;
-        protected String textResponsable;
-        protected String imgServicio;
-    }
-
-    private void llenarLista() {
-        this.modelViews = new ArrayList<>();
-
-        ModelView modelView1 = new ModelView();
-        modelView1.id = 1;
-        modelView1.textServicio = "Academia de futbol";
-        modelView1.textAreaServicio = "Cancha de usos múltiples";
-        modelView1.textoHorario = "Miércoles y Viernes";
-        modelView1.textoHora = "8:00 pm a 10:00 pm";
-        modelView1.textResponsable = "Francesco Grossale";
-        modelView1.imgServicio = "futbol.jpg";
-        this.modelViews.add(modelView1);
-
-        ModelView modelView2 = new ModelView();
-        modelView2.id = 2;
-        modelView2.textServicio = "Academia de natacion";
-        modelView2.textAreaServicio = "Piscina";
-        modelView2.textoHorario = "Lunes y Viernes";
-        modelView2.textoHora = "8:00 am a 6:00 pm";
-        modelView2.textResponsable = "Rosycler Lefante";
-        modelView2.imgServicio = "natacion.jpg";
-        this.modelViews.add(modelView2);
-
-        ModelView modelView3 = new ModelView();
-        modelView3.id = 3;
-        modelView3.textServicio = "Academia de musica";
-        modelView3.textAreaServicio = "Salon de orquestas";
-        modelView3.textoHorario = "Martes y jueves";
-        modelView3.textoHora = "10:00 am a 5:00 pm";
-        modelView3.textResponsable = "Francesco Grossale";
-        modelView3.imgServicio = "salon_de_orquestas_.jpg";
-        this.modelViews.add(modelView3);
-    }
-
-    public static Drawable getAssetImage(Context context, String filenameAndExtension) throws IOException {
-        AssetManager assets = context.getResources().getAssets();
-        InputStream buffer = new BufferedInputStream((assets.open("drawable/" + filenameAndExtension)));
-        Bitmap bitmap = BitmapFactory.decodeStream(buffer);
-        return new BitmapDrawable(context.getResources(), bitmap);
-    }
 }

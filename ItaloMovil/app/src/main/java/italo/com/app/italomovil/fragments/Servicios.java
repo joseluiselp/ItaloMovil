@@ -2,10 +2,12 @@ package italo.com.app.italomovil.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ExpandableListView;
+import android.widget.ListView;
 
 import java.io.Serializable;
 
@@ -17,6 +19,9 @@ import italo.com.app.italomovil.adapter.ServiciosAdapter;
  */
 public class Servicios extends Fragment implements Serializable{
 
+    private Toolbar toolbar;
+    private ListView listViewServicios;
+
     public static Servicios newInstance() {
         Servicios f = new Servicios();
         Bundle b = new Bundle();
@@ -27,9 +32,25 @@ public class Servicios extends Fragment implements Serializable{
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        ExpandableListView elvServicios = (ExpandableListView) view.findViewById(R.id.expandableListViewServicios);
+        //toolbar = (Toolbar) view.findViewById(R.id.serviciosToolbar);
+        listViewServicios = (ListView) view.findViewById(R.id.listViewServicios);
         ServiciosAdapter adapter = new ServiciosAdapter(getActivity());
-        elvServicios.setAdapter(adapter);
+        listViewServicios.setAdapter(adapter);
+        /*
+        if(toolbar!=null){
+            toolbar.setTitle("Servicios del Club");
+            toolbar.setTitleTextColor(getResources().getColor(R.color.White));
+            toolbar.setNavigationIcon(R.drawable.ic_arrow_back_white_48dp);
+            toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+
+
+                @Override
+                public void onClick(View v) {
+                    getActivity().getSupportFragmentManager().popBackStack();
+
+                }
+            });
+        }*/
     }
 
     @Override

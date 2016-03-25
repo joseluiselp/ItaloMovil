@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="5dp"
+    android:orientation="horizontal"
+    android:weightSum="5">
+
+    <italo.com.app.italomovil.widgets.MaterialRoundedImageView
+        android:id="@+id/imgNoticia"
+        android:src="@drawable/noimage"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1.6"
+        app:sriv_left_bottom_corner_radius="10dp"
+        app:sriv_left_top_corner_radius="10dp"
+        app:sriv_oval="false"
+        app:sriv_right_bottom_corner_radius="10dp"
+        app:sriv_right_top_corner_radius="10dp"/>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="3.4"
+        android:weightSum="5"
+        android:padding="5dp"
+        android:orientation="vertical">
+    <TextView
+        android:id="@+id/txtNombreNoticia"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:textColor="@color/principal"
+        android:text="Noticia Prueba"
+        android:layout_weight="1.7"/>
+
+        <TextView
+            android:id="@+id/txtDescripNoticia"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:textSize="12sp"
+            android:textColor="@color/principal"
+            android:text="Descripcion Noticia Prueba"
+            android:layout_weight="2.5"/>
+
+        <TextView
+            android:id="@+id/txtFecha"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:textSize="12sp"
+            android:textColor="@color/principal"
+            android:text="FEcha"
+            android:layout_weight=".8"/>
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

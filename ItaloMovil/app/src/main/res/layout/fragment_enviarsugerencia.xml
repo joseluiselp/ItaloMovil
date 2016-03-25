@@ -12,45 +12,55 @@
         android:background="@color/principal"
         android:titleTextColor="@color/White"/>
 
-    <ScrollView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/scrollView3"
-        android:layout_below="@+id/sugerenciaToolbar"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" >
-
-        <RelativeLayout
+        <LinearLayout
             android:orientation="vertical"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@+id/sugerenciaToolbar"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true">
+            android:padding="25dp"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:layout_below="@id/sugerenciaToolbar"
+            android:weightSum="7">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="Seleccione el tipo de sugerencia que desea enviar: "/>
+
+            <Spinner
+                android:id="@+id/comboTipoSuge"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"></Spinner>
 
             <EditText
-                android:layout_width="379dp"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
                 android:inputType="textMultiLine"
                 android:ems="10"
-                android:id="@+id/editText3"
-                android:hint="Sugerencia" />
+                android:minLines="3"
+                android:maxLines="10"
+                android:id="@+id/txtSugerencia"
+                android:hint="Sugerencia"
+                android:layout_weight="4"/>
 
-            <italo.com.app.italomovil.widgets.MaterialButton
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Enviar"
-                android:textColor="@color/White"
-                android:id="@+id/btnEnviarSugerencia"
-                app:buttonColor="@color/yellowcolor"
-                app:shadowEnabled="true"
-                android:layout_marginBottom="74dp"
-                android:layout_alignParentBottom="true"
-                android:layout_centerHorizontal="true" />
+                android:layout_height="0dp"
+                android:layout_weight="1">
 
-        </RelativeLayout>
+                <italo.com.app.italomovil.widgets.MaterialButton
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Enviar"
+                    android:textColor="@color/White"
+                    android:id="@+id/btnEnviarSugerencia"
+                    app:buttonColor="@color/yellowcolor"
+                    app:shadowEnabled="true"/>
+            </LinearLayout>
 
-    </ScrollView>
+        </LinearLayout>
+
 
 
 </RelativeLayout>

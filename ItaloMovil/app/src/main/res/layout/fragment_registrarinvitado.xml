@@ -34,59 +34,66 @@
                 android:layout_height="wrap_content"
                 android:text="Datos del Invitado"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true" />
+                />
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tieneCedula"
+                android:text="Sin cédula."
+                />
 
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
                 android:ems="15"
-                android:id="@+id/editText4"
-                android:layout_below="@+id/textView7"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true"
-                android:hint="Cedula" />
+                android:id="@+id/txtCedulaInvitado"
+                android:hint="Cédula" />
 
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/editText5"
+                android:id="@+id/txtNombresInvitados"
                 android:ems="15"
-                android:layout_below="@+id/editText4"
-                android:layout_alignLeft="@+id/editText4"
-                android:layout_alignStart="@+id/editText4"
-                android:layout_alignRight="@+id/editText4"
-                android:layout_alignEnd="@+id/editText4"
                 android:hint="Nombres" />
 
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/editText6"
+                android:id="@+id/txtApellidosInvitados"
                 android:ems="15"
-                android:layout_below="@+id/editText5"
-                android:layout_alignRight="@+id/editText5"
-                android:layout_alignEnd="@+id/editText5"
-                android:layout_alignLeft="@+id/editText5"
-                android:layout_alignStart="@+id/editText5"
                 android:hint="Apellidos" />
+
+            <DatePicker
+                android:id="@+id/datePickerInvitacion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:padding="10dp"
+                >
+            </DatePicker>
+
+            <TextView
+                android:id="@+id/txtDisponibilidadInv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:text="Cantidad de Invitados disponibles: Calculando..."
+                />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:layout_marginTop="10dp">
+                android:paddingRight="10dp">
 
                 <italo.com.app.italomovil.widgets.MaterialButton
                     android:layout_gravity="center"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/btnIngresar"
+                    android:id="@+id/btnRegistrarInvitado"
                     android:textColor="@android:color/white"
                     android:text="Registrar"
                     android:textStyle="bold"

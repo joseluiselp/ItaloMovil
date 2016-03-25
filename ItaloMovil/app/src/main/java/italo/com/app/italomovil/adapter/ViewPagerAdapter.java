@@ -9,11 +9,12 @@ import italo.com.app.italomovil.adapter.MainListFragmentAdapter;
 import italo.com.app.italomovil.fragments.Contacto;
 import italo.com.app.italomovil.fragments.Prueba;
 import italo.com.app.italomovil.fragments.QuienesSomos;
+import italo.com.app.italomovil.fragments.Servicios;
 
 public class ViewPagerAdapter extends FragmentPagerAdapter {
 
 	//For each new page this number must be updated
-    final int PAGE_COUNT = 4;
+    final int PAGE_COUNT = 3;
     private String titles[] ;
 
     public ViewPagerAdapter(FragmentManager fm, String[] titles2) {
@@ -30,11 +31,9 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
             case 0:
                 return QuienesSomos.newInstance();
             case 1:
-                return MainListFragmentAdapter.newInstance();
+                return Servicios.newInstance();
             case 2:
                 return Contacto.newInstance();
-            case 3:
-                return Prueba.newInstance();
 
 
         }
