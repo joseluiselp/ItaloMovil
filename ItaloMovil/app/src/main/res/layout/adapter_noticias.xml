@@ -30,7 +30,7 @@
         android:id="@+id/txtNombreNoticia"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:textSize="15sp"
+        android:textSize="12sp"
         android:textStyle="bold"
         android:textColor="@color/principal"
         android:text="Noticia Prueba"
@@ -40,7 +40,7 @@
             android:id="@+id/txtDescripNoticia"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:textSize="12sp"
+            android:textSize="10sp"
             android:textColor="@color/principal"
             android:text="Descripcion Noticia Prueba"
             android:layout_weight="2.5"/>
@@ -49,7 +49,7 @@
             android:id="@+id/txtFecha"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:textSize="12sp"
+            android:textSize="10sp"
             android:textColor="@color/principal"
             android:text="FEcha"
             android:layout_weight=".8"/>

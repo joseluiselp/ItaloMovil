@@ -48,7 +48,7 @@ public class Utils {
     }
 
     public static String getImageName(String path) {
-        String aux = path.replace("http://localhost:8080/ClubItaloWeb/uploadedImages/", "");
+        String aux = path.replace("http://localhost:8080/ClubItalo/uploadedImages/", "");
         StringTokenizer token = new StringTokenizer(aux, ".");
         aux = token.nextToken();
         System.out.println("nombre de la imagen: " + aux);
@@ -102,9 +102,10 @@ public class Utils {
         File file = getImage("/" + imagename + ".jpg");
         String path = file.getAbsolutePath();
 
-        if (path != null)
+        if (path != null) {
+            System.out.println(path);
             b = BitmapFactory.decodeFile(path);
-
+        }
         if (b == null || b.equals("")) {
             return false;
         }

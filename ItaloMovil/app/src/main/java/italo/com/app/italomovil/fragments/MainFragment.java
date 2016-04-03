@@ -239,7 +239,7 @@ public class MainFragment extends Fragment {
 
 
         txtOpcion1.setText("Reservar áreas");
-        txtOpcion2.setText("Enviar sugerencia");
+        txtOpcion2.setText("Enviar comentario");
 
 
         txtOpcion1.setOnClickListener(new View.OnClickListener() {

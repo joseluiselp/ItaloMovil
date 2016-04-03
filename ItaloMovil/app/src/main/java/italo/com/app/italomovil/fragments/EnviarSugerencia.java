@@ -53,7 +53,7 @@ public class EnviarSugerencia extends Fragment {
 
         toolbar = (Toolbar) view.findViewById(R.id.sugerenciaToolbar);
         if (toolbar != null) {
-            toolbar.setTitle("Enviar Sugerencia");
+            toolbar.setTitle("Enviar Comentario");
             toolbar.setTitleTextColor(getResources().getColor(R.color.White));
             toolbar.setNavigationIcon(R.drawable.ic_arrow_back_white_48dp);
             toolbar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -83,7 +83,7 @@ public class EnviarSugerencia extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 tipoSelected = position;
-                System.out.println("Selecctionaste el tipo de sugerencia " + list.get(position).getNombreTipoSugerencia());
+                System.out.println("Selecctionaste el tipo de comentario " + list.get(position).getNombreTipoSugerencia());
             }
 
             @Override
@@ -114,11 +114,11 @@ public class EnviarSugerencia extends Fragment {
                 }
                 if(dias <= 5) {
                     System.out.println("Dias: " + dias);
-                    Toast.makeText(getContext(), "Solo puedes hacer una sugerencia cada 5 dias", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getContext(), "Solo puedes hacer un comentario cada 5 dias", Toast.LENGTH_LONG).show();
                 }
                 else {
                     if (suge.length() <= 25) {
-                        Toast.makeText(getContext(), "La sugerencia tiene que ser de mas de 25 caracteres", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getContext(), "El comentario tiene que ser de mas de 25 caracteres", Toast.LENGTH_LONG).show();
                     } else {
                         AsyncEnviarSuge as = new AsyncEnviarSuge(list.get(tipoSelected).getIdTipoSugerencia(), suge);
                         as.execute();
@@ -167,7 +167,7 @@ public class EnviarSugerencia extends Fragment {
         protected void onPostExecute(Boolean aBoolean) {
             super.onPostExecute(aBoolean);
             if(aBoolean){
-                Toast.makeText(getContext(), "Sugerencia enviada con exito", Toast.LENGTH_LONG).show();
+                Toast.makeText(getContext(), "Comentario enviado con exito", Toast.LENGTH_LONG).show();
                 getActivity().getSupportFragmentManager().popBackStack();
                 DatabaseHelper.getInstance(getContext()).createSugerencia(new Date());
             }

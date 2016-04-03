@@ -67,6 +67,9 @@ public class AsyncImage extends AsyncTask<Void, Integer, Bitmap> {
         InputStream in;
         try {
             in = OpenHttpConnection(URL);
+            System.out.println("URL: "+URL);
+            BitmapFactory.Options options = new BitmapFactory.Options();
+            options.inSampleSize = 8;
             bitmap = BitmapFactory.decodeStream(in);
             in.close();
         } catch (IOException e1) {

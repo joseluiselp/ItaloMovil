@@ -66,8 +66,10 @@ public class DialogReservarArea extends Dialog {
         numberPicker.setMinValue(0);
         numberPicker.setValue(15);
 
-        datePicker.setCalendarViewShown(false);
-        datePicker.setSpinnersShown(true);
+        datePicker.setCalendarViewShown(true);
+        datePicker.setSpinnersShown(false);
+
+
 
 
         btnGuardar.setOnClickListener(new View.OnClickListener() {
@@ -107,7 +109,7 @@ public class DialogReservarArea extends Dialog {
         fechaAlq = c.getTime();
         final AsyncDisp as = new AsyncDisp(a,fechaAlq,dateFormat);
         as.execute();
-        datePicker.init(year,month,day,new DatePicker.OnDateChangedListener() {
+        datePicker.init(year,month+1,day,new DatePicker.OnDateChangedListener() {
             @Override
             public void onDateChanged(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
                 timescalled++;
