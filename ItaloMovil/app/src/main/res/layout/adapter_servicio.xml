@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="5dp"
+    android:orientation="horizontal"
+    android:weightSum="5">
+
+    <italo.com.app.italomovil.widgets.MaterialRoundedImageView
+        android:id="@+id/imgServicio"
+        android:src="@drawable/noimage"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1.8"
+        app:sriv_left_bottom_corner_radius="10dp"
+        app:sriv_left_top_corner_radius="10dp"
+        app:sriv_oval="false"
+        app:sriv_right_bottom_corner_radius="10dp"
+        app:sriv_right_top_corner_radius="10dp"/>
+
+    <TextView
+        android:id="@+id/txtNombreServicio"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:layout_marginLeft="5dp"
+        android:textColor="@color/principal"
+        android:text="Servicio Prueba"
+        android:layout_gravity="right|center_vertical"
+        android:layout_weight="1.6"/>
+
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1.6"
+        android:layout_gravity="right|center_vertical">
+
+        <TextView
+            android:id="@+id/txtAreaServicio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="10sp"
+            android:layout_marginLeft="5dp"
+            android:textColor="@color/principal"
+            android:text="Area Prueba"/>
+
+        <TextView
+            android:id="@+id/txtHorarioServicio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="10sp"
+            android:layout_marginLeft="5dp"
+            android:textColor="@color/principal"
+            android:text="Horario Prueba"
+            android:layout_below="@id/txtAreaServicio"/>
+
+        <TextView
+            android:id="@+id/txtMensualidad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="10sp"
+            android:layout_marginLeft="5dp"
+            android:textColor="@color/principal"
+            android:text="Mensualidad Prueba"
+            android:layout_below="@id/txtHorarioServicio"/>
+
+        <TextView
+            android:id="@+id/txtMensualidadSocio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="10sp"
+            android:layout_marginLeft="5dp"
+            android:textColor="@color/principal"
+            android:text="Mensualidad Socio Prueba"
+            android:layout_below="@id/txtMensualidad"/>
+
+        </RelativeLayout>
+
+
+
+
+</LinearLayout>

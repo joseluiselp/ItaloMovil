@@ -20,7 +20,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:padding="5dp"
+        android:padding="10dp"
         >
         </DatePicker>
 
@@ -30,7 +30,7 @@
         android:layout_height="wrap_content"
         android:text="Disponible para esta fecha"
         android:layout_gravity="center_horizontal"
-        android:textSize="20sp"
+        android:textSize="15sp"
         android:textColor="@color/yellowcolor"
         android:textStyle="bold"/>
 
@@ -78,7 +78,7 @@
             android:layout_marginRight="2.5dp"
             android:text="Aceptar"
             android:textColor="@color/White"
-            app:buttonColor="@color/principal"
+            app:buttonColor="@color/yellowcolor"
             app:shadowEnabled="true"
             />
 
@@ -90,7 +90,7 @@
             android:layout_marginLeft="2.5dp"
             android:text="Cancelar"
             android:textColor="@color/White"
-            app:buttonColor="@color/principal"
+            app:buttonColor="@color/yellowcolor"
             app:shadowEnabled="true"
             />
 

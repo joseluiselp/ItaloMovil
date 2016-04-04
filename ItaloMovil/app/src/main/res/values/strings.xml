@@ -31,11 +31,21 @@
         <item>@color/Purple</item>
     </integer-array>
 
-<!-- TODO: Remove or change this placeholder text -->
+    <!-- TODO: Remove or change this placeholder text -->
 
     <string name="title_activity_splash">ItalSoft</string>
 
-
     <string name="action_settings">Settings</string>
 
+    <!-- Titulo de tabs -->
+    <string name="tab_name_1">Iniciar Sesión</string>
+    <string name="tab_name_2">Noticias</string>
+    <string name="tab_name_3">Instalaciones</string>
+    <string name="tab_name_4">Servicios</string>
+    <string name="tab_name_5">Quienes somos</string>
+    <string name="tab_name_6">Contacto</string>
+    <string name="tab_name_7">Enviar sugerencias</string>
+
+    <!-- Vision -->
+    <string name="vision_text">\   En el cerebro tiene lugar el complicado proceso de la percepción visual gracias al cual somos capaces de percibir la forma de los objetos, identificar distancias, detectar los colores y el movimiento.</string>
 </resources>
